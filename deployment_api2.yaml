@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deployment-api2
+spec: 
+  replicas: 6
+  selector:
+    matchLabels:
+      app: api2
+  template:
+    metadata:
+      labels:
+        app: api2
+    spec:
+      containers:
+        - name: api2
+          image: marcelohaubrih/apidotnet-conversao:multi
+          ports:
+            - containerPort: 80
